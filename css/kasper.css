@@ -146,7 +146,7 @@ header .logo img {
 }
 
 /* links */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .l_hidden {
     display: none;
   }
@@ -200,16 +200,21 @@ header .form i {
 }
 
 /* ------------------- landing ------------------- */
+.background {
+  position: relative;
+}
 .landing .text {
   background-color: var(--transparent-color);
   display: flex;
   justify-content: flex-end;
   color: white;
   max-width: 650px;
-  margin-top: 7%;
-  margin-bottom: 3%;
-  position: relative;
+  position: absolute;
   z-index: 1;
+  padding-left: 20px;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
 }
 .landing_not_hidden {
   max-width: 500px;
@@ -230,38 +235,33 @@ header .form i {
 .landing_hidden {
   display: none;
 }
-.background {
-  position: relative;
+
+/* buttons */
+@media (max-width: 767px) {
+  .background .buttons {
+    display: none;
+  }
 }
 .background .buttons {
-  width: 100%;
-  padding: 40px;
-  position: absolute;
-  top: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.background .buttons i {
-  position: relative;
   color: white;
-  font-size: 25px;
-  font-weight: bolder;
-}
-.background .buttons button {
-  background-color: transparent;
-  border: none;
-  outline: none;
-  cursor: pointer;
-  width: 100%;
-  height: 100%;
   position: absolute;
-  top: 0;
-  left: 0;
+  z-index: 3;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 25px;
+}
+.background .fa-angle-left {
+  left: 30px;
+}
+.background .fa-angle-right {
+  right: 30px;
 }
 /* place */
 .background .place {
-  position: relative;
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
 }
 .background .place ul {
   display: flex;
@@ -284,45 +284,44 @@ header .form i {
 }
 
 /* ------------------- services ------------------- */
-/* media */
-@media (max-width: 768px) {
-  .services .serv {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    margin-bottom: 40px;
-  }
-  .services .serv i {
-    margin-bottom: 30px;
-  }
-}
-/* services */
 .services {
   padding-top: var(--section-padding);
   padding-bottom: var(--section-padding);
 }
-.services .grid_of_services {
+.services .container .grid_of_services {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(450px, 1fr));
-  column-gap: 40px;
-  row-gap: 60px;
+  gap: 60px 40px;
 }
-.services .grid_of_services .serv {
+.services .container .grid_of_services .serv {
   display: flex;
 }
-.services .grid_of_services .serv i {
+.services .container .grid_of_services .serv i {
   margin-right: 50px;
 }
-.services .grid_of_services .serv .srv_text h3 {
+.services .container .grid_of_services .serv .srv_text h3 {
   margin-bottom: 30px;
   color: var(--main-color);
 }
-.services .grid_of_services .serv .srv_text p {
+.services .container .grid_of_services .serv .srv_text p {
   line-height: 2;
   color: #777;
 }
 
+@media (max-width: 767px) {
+  .services .container .grid_of_services {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .services .container .grid_of_services .serv {
+    flex-direction: column;
+  }
+  .services .container .grid_of_services .serv i {
+    margin-right: 0px;
+    margin-bottom: 40px;
+  }
+}
 /* ------------------- Design ------------------- */
 .design {
   height: 600px;
@@ -378,7 +377,11 @@ header .form i {
   z-index: 2;
   flex: 1;
 }
-
+@media (max-width: 767px) {
+  .design .image {
+    display: none;
+  }
+}
 /* ------------------- Portfolio ------------------- */
 .portfolio {
   padding-top: var(--section-padding);
@@ -588,8 +591,19 @@ header .form i {
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.our_skills .container > div {
-  flex-basis: 45%;
+@media (min-width: 992px) {
+  .our_skills .container > div {
+    flex-basis: 45%;
+  }
+}
+@media (max-width: 767px) {
+  .our_skills .container .content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .our_skills .container .content img {
+    margin: 0 auto 20px !important;
+  }
 }
 /* test */
 .our_skills .container > div > h3 {
@@ -628,6 +642,8 @@ header .form i {
 .our_skills .container .bullets {
   display: flex;
   justify-content: center;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
 .our_skills .container .bullets li {
   width: 15px;
@@ -680,6 +696,8 @@ header .form i {
   border-color: black transparent transparent;
   right: -7px;
   top: -15px;
+}
+@media (max-width) {
 }
 
 /* ------------------- quote ------------------- */
