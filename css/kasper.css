@@ -100,11 +100,16 @@ ul {
 }
 /* ------------------- Header ------------------- */
 /* header container */
+header {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
 header .container {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  padding: 0 15px;
+  align-items: center;
   position: relative;
   min-height: 97px;
 }
@@ -117,14 +122,13 @@ header .container::after {
   bottom: 0px;
 }
 header .container nav {
+  flex: 1;
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  gap: 30px;
+  justify-content: flex-end;
 }
 header .container nav .links_list {
   display: flex;
-  justify-content: space-between;
 }
 /* header logo */
 header .logo img {
@@ -132,25 +136,15 @@ header .logo img {
 }
 
 /* Toggle menu */
-.toggle_menu {
+.toggle-menu {
   display: none;
   font-size: 22px;
   color: white;
   position: relative;
   cursor: pointer;
 }
-@media (max-width: 768px) {
-  .t_hidden {
-    display: block;
-  }
-}
 
 /* links */
-@media (max-width: 767px) {
-  .l_hidden {
-    display: none;
-  }
-}
 header nav li:first-child a {
   color: var(--main-color);
   position: relative;
@@ -166,12 +160,14 @@ header nav li:first-child a::after {
   z-index: 3;
 }
 header nav a {
-  text-decoration: none;
-  padding: 40px 20px;
+  padding: 40px 10px;
+  display: block;
   color: white;
+  text-decoration: none;
   font-size: 14px;
-  position: relative;
   transition: 0.3s;
+  position: relative;
+  z-index: 2;
 }
 header nav a:hover {
   color: var(--main-color);
@@ -186,17 +182,39 @@ header nav a:hover::after {
   left: 0;
   z-index: 3;
 }
-
+@media (max-width: 767px) {
+  .toggle-menu {
+    display: block;
+  }
+  header nav .links_list {
+    display: none !important;
+  }
+}
+.toggle-menu:hover + .links_list {
+  display: flex !important;
+  flex-direction: column;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  background-color: rgb(0 0 0 / 50%);
+  z-index: 99;
+}
 /* search icon */
 header .form {
-  padding: 4px 20px;
-  border-left: solid white 1px;
+  width: 40px;
+  height: 30px;
+  position: relative;
+  margin-left: 30px;
+  border-left: 1px solid white;
 }
 header .form i {
   color: white;
-  font-size: 22px;
-  font-weight: bold;
-  cursor: pointer;
+  position: absolute;
+  font-size: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
 }
 
 /* ------------------- landing ------------------- */
